@@ -75,6 +75,9 @@ bool     tud_midi_n_packet_read  (uint8_t itf, uint8_t packet[4]);
 // Write event packet            (4 bytes)
 bool     tud_midi_n_packet_write (uint8_t itf, uint8_t const packet[4]);
 
+// get number of bytes available for writing.
+uint16_t tud_midi_fifo_remaining(uint8_t itf);
+
 //--------------------------------------------------------------------+
 // Application API (Single Interface)
 //--------------------------------------------------------------------+
@@ -86,6 +89,9 @@ static inline uint32_t tud_midi_stream_write (uint8_t cable_num, uint8_t const* 
 
 static inline bool     tud_midi_packet_read  (uint8_t packet[4]);
 static inline bool     tud_midi_packet_write (uint8_t const packet[4]);
+
+
+
 
 //------------- Deprecated API name  -------------//
 // TODO remove after 0.10.0 release

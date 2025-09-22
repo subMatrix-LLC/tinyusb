@@ -363,6 +363,16 @@ bool tud_midi_n_packet_write (uint8_t itf, const uint8_t packet[4]) {
   return true;
 }
 
+uint16_t tud_midi_fifo_remaining(uint8_t itf)
+{
+	midid_interface_t* midi = &_midid_itf[itf];
+	TU_VERIFY(midi->ep_in);
+
+	return (tu_fifo_remaining(&midi->tx_ff));
+}
+
+
+
 //--------------------------------------------------------------------+
 // USBD Driver API
 //--------------------------------------------------------------------+
